@@ -2,8 +2,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestPalindrome {
-    /*// You must use this palindrome, and not instantiate
-    // new Palindromes, or the autograder might be upset.
+    /* You must use this palindrome, and not instantiate
+    new Palindromes, or the autograder might be upset.*/
+
     static Palindrome palindrome = new Palindrome();
 
     @Test
@@ -14,5 +15,38 @@ public class TestPalindrome {
             actual += d.removeFirst();
         }
         assertEquals("persiflage", actual);
-    } Uncomment this class once you've created your Palindrome class. */
+    }
+
+    @Test
+    public void testIsPalindrome(){
+
+        String word1 = "racecar";
+
+        String word2 = "share";
+
+        String word3 = "a";
+
+        String word4 = "";
+
+        String word5 = "asdsap";
+
+        assertEquals(palindrome.isPalindrome(word1), true);
+        assertEquals(palindrome.isPalindrome(word2), false);
+        assertEquals(palindrome.isPalindrome(word3), true);
+        assertEquals(palindrome.isPalindrome(word4), true);
+        assertEquals(palindrome.isPalindrome(word5), false);
+
+    }
+
+    @Test
+    public void testIsPalindromeOverload(){
+
+        OffByOne p = new OffByOne();
+
+        assertEquals(palindrome.isPalindrome("racecar", p), true);
+        assertEquals(palindrome.isPalindrome("johnson", p), false);
+        assertEquals(palindrome.isPalindrome("p", p), true);
+
+
+    }
 }
