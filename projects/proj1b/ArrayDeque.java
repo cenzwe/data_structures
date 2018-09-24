@@ -1,4 +1,4 @@
-public class ArrayDeque <generic> {
+public class ArrayDeque <generic> implements Deque<generic> {
 
     // variable declarations
 
@@ -44,7 +44,7 @@ public class ArrayDeque <generic> {
         return  Math.floorMod(i + 1, items.length);
     }
 
-
+    @Override
     public void addFirst(generic thing){
 
         size = size +1;
@@ -60,7 +60,7 @@ public class ArrayDeque <generic> {
         }
 
     }
-
+    @Override
     public void addLast(generic thing){
 
         size = size + 1;
@@ -75,17 +75,17 @@ public class ArrayDeque <generic> {
 
         }
     }
-
+    @Override
     public boolean isEmpty(){
 
         return size == 0;
     }
-
+    @Override
     public int size(){
 
         return size;
     }
-
+    @Override
     public void printDeque(){
 
         // iterate from front to back
@@ -100,7 +100,7 @@ public class ArrayDeque <generic> {
         }
 
     }
-
+    @Override
     public generic removeFirst(){
 
         size = size - 1;
@@ -119,7 +119,7 @@ public class ArrayDeque <generic> {
         return pop;
 
     }
-
+    @Override
     public generic removeLast(){
 
         size = size - 1;
@@ -138,7 +138,7 @@ public class ArrayDeque <generic> {
         return pop;
 
     }
-
+    @Override
     public generic get(int index){
 
         int correctedIndex = Math.floorMod(index + backward(nextFront), items.length);
@@ -201,12 +201,5 @@ public class ArrayDeque <generic> {
         items = newArray;
 
     }
-
-
-
-
-
-
-
 
 }
