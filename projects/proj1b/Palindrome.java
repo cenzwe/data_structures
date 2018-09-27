@@ -31,29 +31,16 @@ public class Palindrome {
 
         Deque<Character> letters = wordToDeque(word);
 
-        if (word.length() == 0 || word.length() == 1){
+        while(letters.size() > 1){
 
-            return true;
+            Character front = letters.removeFirst();
+
+            Character back  = letters.removeLast();
+            if(cc.equalChars(front, back) != true){
+                return false;
+            }
         }
-
-        Character frontDeque = letters.removeFirst();
-
-        Character backDeque = letters.removeFirst();
-
-        Character frontWord = word.charAt(1);
-
-        Character backWord = word.charAt(word.length() - 1);
-
-        if(!cc.equalChars(frontDeque, backWord) || !cc.equalChars(backDeque, frontWord)){
-
-            return false;
-        }
-
-        String endsRemoved = word.substring(1, word.length());
-        return isPalindrome(endsRemoved, cc);
-
-
-
+        return true;
 
     }
 
