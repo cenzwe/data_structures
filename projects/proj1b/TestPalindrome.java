@@ -43,10 +43,12 @@ public class TestPalindrome {
 
         OffByOne p = new OffByOne();
 
-        assertEquals(palindrome.isPalindrome("racecar", p), true);
+        assertEquals(palindrome.isPalindrome("flake", p), true);
         assertEquals(palindrome.isPalindrome("johnson", p), false);
         assertEquals(palindrome.isPalindrome("p", p), true);
 
 
     }
+
+
 }
