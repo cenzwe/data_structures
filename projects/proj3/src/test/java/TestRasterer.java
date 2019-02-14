@@ -155,4 +155,57 @@ public class TestRasterer {
         return sj.toString();
     }
 
+
+
+    @Test
+    public void testgetImages(){
+
+        int[] start = new int[]{1,1};
+
+        int[] end = new int[]{2,2};
+
+        String[][] answer = new String[2][2];
+
+        answer[0][0] = "d7_x1_y1.png";
+        answer[0][1] = "d7_x2_y1.png";
+        answer[1][0] = "d7_x1_y2.png";
+        answer[1][1] = "d7_x2_y2.png";
+
+        String[][] myAnswer = Rasterer.getImages(start, end, 7);
+
+        assertArrayEquals(answer, myAnswer);
+
+
+
+
+    }
+
+
+
+    @Test
+    // passes for lat floor and lon floor
+    public void testFindStartingTile(){
+
+        double queryULLon1 = -122.292887961;
+
+        double queryULLat1 = 37.883626573;
+
+        int[] expectedArray1 = new int[]{1,1};
+
+        assertArrayEquals(expectedArray1, Rasterer.findStartingTile(queryULLon1, queryULLat1, 4));
+
+        // next 37.877266154 -122.239956628
+
+        double queryULLon2 = -122.239956628;
+
+        double queryULLat2 = 37.877266154;
+
+        int[] expectedArray2 = new int[]{10,3};
+
+        assertArrayEquals(expectedArray2, Rasterer.findStartingTile(queryULLon2, queryULLat2, 4));
+
+    }
+
+
+
 }
